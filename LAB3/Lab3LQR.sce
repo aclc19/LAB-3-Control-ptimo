@@ -23,12 +23,13 @@ lam=spec(A+B*Kc)
 G=ss2tf(M)// funcion de transferencia 
 scf(1)
 bode (G,0.01 ,100)
-title('comportamiento en frecuencia - Lazo abierto')
-GC=G/(1+G)
-scf(2)
-bode (GC,0.01 ,100)
-title('comportamiento en frecuencia - Lazo cerrado')
-scf(3)
+//habilitar las siguientes lineas cuando se tenga una sola salida en el superbloque de xcos
+//title('comportamiento en frecuencia - Lazo abierto')
+//GC=G/(1+G)
+//scf(2)
+//bode (GC,0.01 ,100)
+//title('comportamiento en frecuencia - Lazo cerrado')
+//scf(3)
 dt=0.1;
 t=0:dt:200;
 y=csim('step',t,M,L);
